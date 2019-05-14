@@ -9,12 +9,12 @@ class Landing extends Component {
         e.preventDefault();
         try {
             const search_string = e.target.elements.search_string.value;
-
             const body = {
                 "search_string": search_string
             }
-            const api_call = await fetch(`http://localhost:80/search`, {
+            const api_call = await fetch(`http://3.15.31.2:80/search`, {
                 method: 'POST',
+                mode: 'no-cors',
                 body: JSON.stringify(body),
                 headers: {
                     'Accept': 'application/json',
