@@ -82,7 +82,7 @@ def return_result(dict1, objects):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='localhost', port=80)
+    app.run(debug=True, host='127.0.0.1', port=4001)
 
 
 # file1 = open("foods.txt","r")
