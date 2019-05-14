@@ -34,13 +34,12 @@ def search():
             review_time = file1.readline().split(': ')[1]
             review_summary = file1.readline().split(': ')[1]
             review_text = file1.readline().split(': ')[1]
-            print(review_summary)
-            print(review_text)
             space = file1.readline()
             rating_count = 0.0
             for string1 in search_array:
-
+                print(string1)
                 if(string1 in review_summary):
+                    
                     rating_count = rating_count + 1
 
                 if(string1 in review_text):
