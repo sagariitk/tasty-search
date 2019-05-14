@@ -22,7 +22,7 @@ def search():
         objects = []
         dict1 = {}
         file1 = open("foods.txt", "r")
-        print(ile1.readline())
+        print(file1.readline())
 
         # for i in range(100):
         #     rating_count = 0
