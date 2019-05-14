@@ -53,7 +53,31 @@ def search():
 
             dict1[rating] = unique_identifier
         file1.close()
-        objects = return_result(dict1, objects)
+        # objects = return_result(dict1, objects)
+
+        print(objects)
+
+
+        j = 0
+        for k in sorted(dict1, reverse=True):
+            if(j < 20):
+                dict1[k] = dict1[k]
+                something = dict1[k].split('-')
+                something1 = something[0]
+                product_productId = something[0].split('\n')[0]
+                review_userId = something[1].split('\n')[0]
+                review_profileName = something[2].split('\n')[0]
+                review_helpfulness = something[3].split('\n')[0]
+                review_score = something[4].split('\n')[0]
+                review_time = something[5].split('\n')[0]
+                review_summary = something[6].split('\n')[0]
+                review_text = something[7].split('\n')[0]
+                abc = {"productId": product_productId, "userId": review_userId, "profileName": review_profileName,
+                    "score": review_score, "time": review_time, "summary": review_summary, "text": review_text}
+                objects.append(abc)
+                j = j + 1
+            else:
+                break
 
         print(objects)
 
@@ -62,29 +86,29 @@ def search():
         return jsonify(objects), 200
 
 
-def return_result(dict1, objects):
-    j = 0
-    for i in sorted(dict1, reverse=True):
-        if(j < 20):
-            dict1[i] = dict1[i]
-            something = dict1[i].split('-')
-            something1 = something[0]
-            product_productId = something[0].split('\n')[0]
-            review_userId = something[1].split('\n')[0]
-            review_profileName = something[2].split('\n')[0]
-            review_helpfulness = something[3].split('\n')[0]
-            review_score = something[4].split('\n')[0]
-            review_time = something[5].split('\n')[0]
-            review_summary = something[6].split('\n')[0]
-            review_text = something[7].split('\n')[0]
-            abc = {"productId": product_productId, "userId": review_userId, "profileName": review_profileName,
-                   "score": review_score, "time": review_time, "summary": review_summary, "text": review_text}
-            objects.append(abc)
-            j = j + 1
-        else:
-            return objects
+# def return_result(dict1, objects):
+#     j = 0
+#     for i in sorted(dict1, reverse=True):
+#         if(j < 20):
+#             dict1[i] = dict1[i]
+#             something = dict1[i].split('-')
+#             something1 = something[0]
+#             product_productId = something[0].split('\n')[0]
+#             review_userId = something[1].split('\n')[0]
+#             review_profileName = something[2].split('\n')[0]
+#             review_helpfulness = something[3].split('\n')[0]
+#             review_score = something[4].split('\n')[0]
+#             review_time = something[5].split('\n')[0]
+#             review_summary = something[6].split('\n')[0]
+#             review_text = something[7].split('\n')[0]
+#             abc = {"productId": product_productId, "userId": review_userId, "profileName": review_profileName,
+#                    "score": review_score, "time": review_time, "summary": review_summary, "text": review_text}
+#             objects.append(abc)
+#             j = j + 1
+#         else:
+#             return objects
 
-    return objects
+#     return objects
 
 
 if __name__ == '__main__':
