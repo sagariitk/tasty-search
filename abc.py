@@ -18,38 +18,39 @@ def search():
     try:
         search_string = request.json['search_string']
         search_array = search_string.split(',')
+        print(search_array)
         objects = []
-        dict1 = {}
-        file1 = open("foods.txt", "r")
-        for i in range(100):
-            rating_count = 0
-            product_productId = file1.readline().split(': ')[1]
-            review_userId = file1.readline().split(': ')[1]
-            review_profileName = file1.readline().split(': ')[1]
-            review_helpfulness = file1.readline().split(': ')[1]
-            review_score = file1.readline().split(': ')[1]
-            review_time = file1.readline().split(': ')[1]
-            review_summary = file1.readline().split(': ')[1]
-            review_text = file1.readline().split(': ')[1]
-            space = file1.readline()
-            for string1 in search_array:
+        # dict1 = {}
+        # file1 = open("foods.txt", "r")
+        # for i in range(100):
+        #     rating_count = 0
+        #     product_productId = file1.readline().split(': ')[1]
+        #     review_userId = file1.readline().split(': ')[1]
+        #     review_profileName = file1.readline().split(': ')[1]
+        #     review_helpfulness = file1.readline().split(': ')[1]
+        #     review_score = file1.readline().split(': ')[1]
+        #     review_time = file1.readline().split(': ')[1]
+        #     review_summary = file1.readline().split(': ')[1]
+        #     review_text = file1.readline().split(': ')[1]
+        #     space = file1.readline()
+        #     for string1 in search_array:
 
-                if(string1 in review_summary):
-                    rating_count = rating_count + 1
+        #         if(string1 in review_summary):
+        #             rating_count = rating_count + 1
 
-                if(string1 in review_text):
-                    rating_count = rating_count + 1
+        #         if(string1 in review_text):
+        #             rating_count = rating_count + 1
 
-                unique_identifier = product_productId + "-" + review_userId + "-" + review_profileName + "-" + \
-                    review_helpfulness + "-" + review_score + "-" + \
-                    review_time + "-" + review_summary + "-" + review_text
+        #         unique_identifier = product_productId + "-" + review_userId + "-" + review_profileName + "-" + \
+        #             review_helpfulness + "-" + review_score + "-" + \
+        #             review_time + "-" + review_summary + "-" + review_text
 
-            rating = str(rating_count/len(search_array)) + "_" + \
-                review_score + "_" + product_productId
-            dict1[rating] = unique_identifier
+        #     rating = str(rating_count/len(search_array)) + "_" + \
+        #         review_score + "_" + product_productId
+        #     dict1[rating] = unique_identifier
 
-        file1.close()
-        objects = return_result(dict1, objects)
+        # file1.close()
+        # objects = return_result(dict1, objects)
 
         return jsonify(objects), 200
     except:
