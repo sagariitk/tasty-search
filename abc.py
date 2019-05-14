@@ -37,7 +37,7 @@ def search():
             print(review_summary)
             print(review_text)
             space = file1.readline()
-            
+            rating_count = 0.0
             for string1 in search_array:
 
                 if(string1 in review_summary):
