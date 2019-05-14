@@ -11,10 +11,12 @@ def test():
 
 @app.route('/search', methods=['POST'])
 def search():
+    objects = []
+
     try:
         search_string = request.json['search_string']
         search_array = search_string.split(',')
-        objects = []
+        # objects = []
         dict1 = {}
         file1 = open("foods.txt","r") 
         for i in range(100):
@@ -46,7 +48,7 @@ def search():
 
         return jsonify(objects), 200
     except:
-        return jsonify({"msg": "Something got returned"}), 200
+        return jsonify(objects), 200
     
 def return_result(dict1, objects):
     j = 0
