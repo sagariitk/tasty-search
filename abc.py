@@ -14,7 +14,6 @@ def test():
 @app.route('/search', methods=['POST'])
 @cross_origin(origin='*')
 def search():
-    response.headers.add('Access-Control-Allow-Origin', '*')
     objects = []
     try:
         search_string = request.json['search_string']
@@ -51,13 +50,10 @@ def search():
 
         file1.close()
         objects = return_result(dict1, objects)
-        response = jsonify(objects)
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        return response, 200
+
+        return jsonify(objects), 200
     except:
-        response = jsonify(objects)
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        return response, 200
+        return jsonify(objects), 200
 
 
 def return_result(dict1, objects):
@@ -86,7 +82,7 @@ def return_result(dict1, objects):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=4001)
+    app.run(debug=True, host='0.0.0.0', port=80)
 
 
 # file1 = open("foods.txt","r")

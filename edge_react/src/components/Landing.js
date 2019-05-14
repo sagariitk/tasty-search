@@ -12,8 +12,9 @@ class Landing extends Component {
             const body = {
                 "search_string": search_string
             }
-            const api_call = await fetch(`http://10.0.0.217:4001/search`, {
+            const api_call = await fetch(`http://3.15.31.2:80/search`, {
                 method: 'POST',
+                // mode: 'no-cors',
                 body: JSON.stringify(body),
                 headers: {
                     'Accept': 'application/json',
