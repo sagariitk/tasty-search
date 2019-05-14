@@ -52,9 +52,10 @@ def search():
             print(rating)
 
             dict1[rating] = unique_identifier
-        print(dict1)
         file1.close()
         objects = return_result(dict1, objects)
+        
+        print(objects)
 
         return jsonify(objects), 200
     except:
