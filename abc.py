@@ -49,13 +49,13 @@ def search():
 
             rating = str(rating_count/len(search_array)) + "_" + \
                 review_score + "_" + product_productId
-            print(rating)
+            # print(rating)
 
             dict1[rating] = unique_identifier
         file1.close()
         objects = return_result(dict1, objects)
 
-        print(jsonify(objects))
+        print(objects)
 
         return jsonify(objects), 200
     except:
