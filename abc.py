@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, jsonify, Response
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 import db_operations
 
 app = Flask(__name__)
@@ -10,6 +10,7 @@ def test():
     return jsonify({"msg": "Flask App Working"}), 200
 
 @app.route('/search', methods=['POST'])
+@cross_origin(origin='*')
 def search():
     objects = []
 

@@ -14,11 +14,14 @@ class Landing extends Component {
             }
             const api_call = await fetch(`http://3.15.31.2:80/search`, {
                 method: 'POST',
-                mode: 'no-cors',
+                // mode: 'no-cors',
                 body: JSON.stringify(body),
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS',
+                    'Access-Control-Allow-Headers': 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
                 }
             });
             const status = await api_call.status;
