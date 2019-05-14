@@ -46,12 +46,13 @@ def search():
                 unique_identifier = product_productId + "-" + review_userId + "-" + review_profileName + "-" + \
                     review_helpfulness + "-" + review_score + "-" + \
                     review_time + "-" + review_summary + "-" + review_text
-            print(rating_count)
 
             rating = str(rating_count/len(search_array)) + "_" + \
                 review_score + "_" + product_productId
-            dict1[rating] = unique_identifier
+            print(rating)
 
+            dict1[rating] = unique_identifier
+        print(dict1)
         file1.close()
         objects = return_result(dict1, objects)
 
