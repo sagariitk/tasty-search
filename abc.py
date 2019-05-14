@@ -22,7 +22,7 @@ def search():
         objects = []
         dict1 = {}
         file1 = open("foods.txt", "r")
-        print(file1.readline())
+        # print(file1.readline())
 
         for i in range(100):
             rating_count = 0
@@ -34,7 +34,10 @@ def search():
             review_time = file1.readline().split(': ')[1]
             review_summary = file1.readline().split(': ')[1]
             review_text = file1.readline().split(': ')[1]
+            print(review_summary)
+            print(review_text)
             space = file1.readline()
+            
             for string1 in search_array:
 
                 if(string1 in review_summary):
