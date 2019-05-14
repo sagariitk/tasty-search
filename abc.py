@@ -54,8 +54,8 @@ def search():
             dict1[rating] = unique_identifier
         file1.close()
         objects = return_result(dict1, objects)
-        
-        print(objects)
+
+        print(jsonify(objects))
 
         return jsonify(objects), 200
     except:
