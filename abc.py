@@ -20,8 +20,10 @@ def search():
         search_array = search_string.split(',')
         print(search_array)
         objects = []
-        # dict1 = {}
-        # file1 = open("foods.txt", "r")
+        dict1 = {}
+        file1 = open("foods.txt", "r")
+        print(ile1.readline())
+
         # for i in range(100):
         #     rating_count = 0
         #     product_productId = file1.readline().split(': ')[1]
